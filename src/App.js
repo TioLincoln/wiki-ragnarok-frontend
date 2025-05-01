@@ -5,14 +5,17 @@ import AppRoutes from './routes';
 import { ThemeProvider } from 'styled-components';
 import theme from './theme/theme';
 import { GlobalStyle } from './theme/GlobalStyle';
+import ErrorBoundary from './components/ErrorBoundary'; // Local Correto do ErrorBoundary
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Router>
-        <AppRoutes />
-      </Router>
+      <ErrorBoundary>
+        <Router>
+          <AppRoutes />
+        </Router>
+      </ErrorBoundary>
     </ThemeProvider>
   );
 };
