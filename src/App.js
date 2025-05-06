@@ -5,6 +5,8 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './theme/GlobalStyle';
 import { darkTheme, lightTheme } from './theme/themes';
 import ErrorBoundary from './components/ErrorBoundary';
+import { AuthProvider } from './context/AuthContext';
+
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -13,13 +15,15 @@ const App = () => {
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <GlobalStyle />
-      <ErrorBoundary>
+    <GlobalStyle />
+    <ErrorBoundary>
+      <AuthProvider>
         <Router>
           <AppRoutes toggleTheme={toggleTheme} darkMode={darkMode} />
         </Router>
-      </ErrorBoundary>
-    </ThemeProvider>
+      </AuthProvider>
+    </ErrorBoundary>
+  </ThemeProvider>
   );
 };
 

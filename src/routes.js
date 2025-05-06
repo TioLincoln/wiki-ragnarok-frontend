@@ -13,6 +13,9 @@ import Guias from './pages/Guias';
 import DetalhesGuia from './pages/Guias/Detalhes';
 import Busca from './pages/Busca';
 import NotFound from './pages/NotFound';
+import Login from './pages/Login';
+import Registro from './pages/Registro';
+
 
 const AppRoutes = ({ toggleTheme, darkMode }) => {
   return (
@@ -30,6 +33,8 @@ const AppRoutes = ({ toggleTheme, darkMode }) => {
         <Route path="guias/:id" element={<DetalhesGuia />} />
         <Route path="busca" element={<Busca />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="login" element={<Login />} />
+        <Route path="registro" element={<Registro />} />
       </Route>
     </Routes>
   );
