@@ -14,6 +14,9 @@ const Wrapper = styled.header`
 const Logo = styled.h1`
   font-size: 1.5rem;
   color: ${({ theme }) => theme.colors.primary};
+  display: flex;
+  align-items: center;
+  gap: 16px;
 `;
 
 const Nav = styled.nav`
@@ -28,10 +31,36 @@ const Nav = styled.nav`
   }
 `;
 
-const Header = () => {
+const ThemeToggleWrapper = styled.div`
+  position: relative;
+  width: 24px;
+  height: 48px;
+  background-color: ${({ theme }) => theme.colors.border};
+  border-radius: 16px;
+  border: 1px solid ${({ theme }) => theme.colors.highlight};
+  cursor: pointer;
+`;
+
+const ToggleCircle = styled.div`
+  position: absolute;
+  top: ${({ darkMode }) => (darkMode ? '4px' : '24px')};
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  border-radius: 50%;
+  transition: top 0.3s ease-in-out;
+`;
+
+const Header = ({ toggleTheme, darkMode }) => {
   return (
     <Wrapper>
-      <Logo>Ragnarok Wiki</Logo>
+      <Logo>
+        Ragnarok Wiki
+        <ThemeToggleWrapper onClick={toggleTheme}>
+          <ToggleCircle darkMode={darkMode} />
+        </ThemeToggleWrapper>
+      </Logo>
       <Nav>
         <Link to="/">Início</Link>
         <Link to="/monstros">Monstros</Link>
