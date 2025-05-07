@@ -24,7 +24,7 @@ export const lightTheme = {
     surface: '#FFFFFF',
     primary: '#E50914',
     secondary: '#0077cc',
-    text: '#121212',
+    text: '#565656',
     textMuted: '#555555',
     border: '#dddddd',
     highlight: '#E50914',
